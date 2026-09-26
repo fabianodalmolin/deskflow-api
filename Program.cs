@@ -4,14 +4,23 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<DeskFlow.API.Data.AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Registro dos Repositórios (Camada de Dados)
+builder.Services.AddScoped<DeskFlow.API.Repositories.Interfaces.ICategoriaRepository, DeskFlow.API.Repositories.CategoriaRepository>();
+builder.Services.AddScoped<DeskFlow.API.Repositories.Interfaces.IChamadoRepository, DeskFlow.API.Repositories.ChamadoRepository>();
+builder.Services.AddScoped<DeskFlow.API.Repositories.Interfaces.IInteracaoRepository, DeskFlow.API.Repositories.InteracaoRepository>();
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+// Registro dos Serviços (Camada de Negócio)
+builder.Services.AddScoped<DeskFlow.API.Services.Interfaces.ICategoriaService, DeskFlow.API.Services.CategoriaService>();
+builder.Services.AddScoped<DeskFlow.API.Services.Interfaces.IChamadoService, DeskFlow.API.Services.ChamadoService>();
+
+
+
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -26,7 +35,7 @@ var summaries = new[]
 
 app.MapGet("/weatherforecast", () =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
+    var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),

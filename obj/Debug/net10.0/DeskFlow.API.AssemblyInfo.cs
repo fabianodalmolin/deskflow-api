@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeskFlow.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b892a2b420bb946ed0e011e644b3f66e29fe7eb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6686163a8f459236198f59c3afcee0647c2249eb")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeskFlow.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeskFlow.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
