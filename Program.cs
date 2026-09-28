@@ -20,6 +20,8 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
+// Ativa o escudo de proteção global contra erros (Middleware)
+app.UseMiddleware<DeskFlow.API.Middlewares.ErrorHandlingMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
