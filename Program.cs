@@ -12,13 +12,14 @@ builder.Services.AddScoped<DeskFlow.API.Repositories.Interfaces.IInteracaoReposi
 // Registro dos Serviços (Camada de Negócio)
 builder.Services.AddScoped<DeskFlow.API.Services.Interfaces.ICategoriaService, DeskFlow.API.Services.CategoriaService>();
 builder.Services.AddScoped<DeskFlow.API.Services.Interfaces.IChamadoService, DeskFlow.API.Services.ChamadoService>();
-
-
+builder.Services.AddControllers();
 
 
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+app.MapControllers();
+
 
 // Ativa o escudo de proteção global contra erros (Middleware)
 app.UseMiddleware<DeskFlow.API.Middlewares.ErrorHandlingMiddleware>();
